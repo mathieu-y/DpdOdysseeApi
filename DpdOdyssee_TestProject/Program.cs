@@ -9,6 +9,7 @@ using System.Diagnostics;
 
 using System.IO;
 
+using YardConsulting;
 using YardConsulting.DpdOdyssee;
 using YardConsulting.DpdOdyssee.JSON.Shipment;
 
@@ -40,7 +41,7 @@ namespace DpdOdyssee_TestProject
                 senderZipCode = "77144",
                 senderCountryCode = "FR",
 
-                receiverFirmName = "DPD",
+                receiverFirmName = "DPD ßöëéà Şimşek Матье",
                 receiverHouseNo = "8",
                 receiverStreet = "Rue de Chevilly",
                 receiverZipCode = "94260",
@@ -106,21 +107,6 @@ namespace DpdOdyssee_TestProject
                     {
                         cref1 = "cref1-C",
                         weight = 1.3f
-                    },
-                    new RequestLabelCreation.Parcel()
-                    {
-                        cref1 = "cref1-D",
-                        weight = 1.4f
-                    },
-                    new RequestLabelCreation.Parcel()
-                    {
-                        cref1 = "cref1-E",
-                        weight = 1.5f
-                    },
-                    new RequestLabelCreation.Parcel()
-                    {
-                        cref1 = "cref1-F",
-                        weight = 1.6f
                     }
                 },
 
