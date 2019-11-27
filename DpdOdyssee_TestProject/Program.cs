@@ -22,7 +22,7 @@ namespace DpdOdyssee_TestProject
 
         static async Task Main(string[] args)
         {
-            //
+            // This file must be in the same path as the .exe
             credentials = new DpdOdysseeCredentials("credentials.json");
 
             await TestOne();
@@ -32,15 +32,7 @@ namespace DpdOdyssee_TestProject
         static async Task TestOne()
         {
             var labels = await new RequestLabelCreation
-            {
-                payerId = 11715508,
-                payerAddressId = 13645482,
-                senderId = 11715508,
-                senderAddressId = 13645487,
-                departureUnitId = "1077",
-                senderZipCode = "77144",
-                senderCountryCode = "FR",
-
+            {               
                 receiverFirmName = "DPD ßöëéà Şimşek Матье",
                 receiverHouseNo = "8",
                 receiverStreet = "Rue de Chevilly",
@@ -75,14 +67,6 @@ namespace DpdOdyssee_TestProject
         {
             var response = await new RequestLabelCreation
             {
-                payerId = 11715508,
-                payerAddressId = 13645482,
-                senderId = 11715508,
-                senderAddressId = 13645487,
-                departureUnitId = "1077",
-                senderZipCode = "77144",
-                senderCountryCode = "FR",
-
                 receiverFirmName = "DPD",
                 receiverHouseNo = "8",
                 receiverStreet = "Rue de Chevilly",
