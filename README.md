@@ -1,4 +1,4 @@
-# DpdOdyssee.Api (C#.Net)
+# DpdOdyssee.Api (C#.NET)
 New DPD Odyssee Shipping API (should be in production in march 2020)
 
 Covered by this Library: 
