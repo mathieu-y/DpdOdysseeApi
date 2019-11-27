@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>YardConsulting.DpdOdysseeApi</PackageId>
+    <Authors>Mathieu Yard</Authors>
+    <Company>Yard Consulting</Company>
+    <Description>New DPD FRANCE SHIPPING API (should be in production in march 2020)</Description>
+    <Copyright>Mathieu Yard</Copyright>
+    <PackageLicenseUrl>https://github.com/mathieu-y/DpdFrShippingApi/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/mathieu-y/DpdFrShippingApi</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+</Project>
