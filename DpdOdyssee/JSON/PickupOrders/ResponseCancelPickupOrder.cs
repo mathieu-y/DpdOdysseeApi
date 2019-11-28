@@ -7,9 +7,9 @@ using System.ComponentModel;
 namespace YardConsulting.DpdOdyssee.JSON.PickupOrders
 {
     /// <summary>
-    /// 3.1.2 Acquired data
+    /// 3.2.2 Acquired data
     /// </summary>
-    public class ResponseProgramPickupOrder
+    public class ResponseCancelPickupOrder
     {
         /// <summary>
         /// Pickup order ID

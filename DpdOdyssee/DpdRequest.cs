@@ -11,6 +11,9 @@ using Newtonsoft.Json;
 
 namespace YardConsulting.DpdOdyssee
 {
+    /// <summary>
+    /// Class to interact with DPD's servers.
+    /// </summary>
     public class DpdRequest
     {
         private static JsonSerializer serializerStrict = new JsonSerializer {
@@ -23,7 +26,7 @@ namespace YardConsulting.DpdOdyssee
         };
 
         private static JsonSerializer serializer = new JsonSerializer {
-             DateFormatString = "yyyyMMdd"
+             DateFormatString = "yyyyMMdd"          
             ,NullValueHandling = NullValueHandling.Ignore
         };
 
@@ -43,14 +46,21 @@ namespace YardConsulting.DpdOdyssee
             this.jsonRequest = jsonRequest;
         }      
 
+        
         public async Task<T> GetResponseAsync<T>()
         {
             var json = serializerStrict.SerializeToMemory(jsonRequest);
 #if DEBUG
             Debug.WriteLine("*** REQUEST **********************");
+            Debug.Write(webRequest.Headers);
             Debug.WriteLine(Encoding.UTF8.GetString(json.ToArray()));
             Debug.WriteLine("**********************************");
 #endif
+
+            // Here we must do a copy of the stream since we don't know if the wished structure will come or an error.
+            // It would be nice & clean when DPD would warn us in the headers whether it's an error or not. 
+            // (or even better gives us the type of the structure which is about be sent)
+
             await json.CopyToAsync(await webRequest.GetRequestStreamAsync());
 
             using (var webResponse = (HttpWebResponse)await webRequest.GetResponseAsync())
@@ -60,6 +70,7 @@ namespace YardConsulting.DpdOdyssee
 #if DEBUG
                 object response = stream.GetDeserializedResponse<object>(serializer);
                 Debug.WriteLine("*** RESPONSE *********************");
+                Debug.Write(webResponse.Headers);
                 Debug.WriteLine(response.ToFormattedJson());
                 Debug.WriteLine("**********************************");
 #endif

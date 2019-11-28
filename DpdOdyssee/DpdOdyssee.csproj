@@ -10,6 +10,7 @@
     <PackageLicenseUrl>https://github.com/mathieu-y/DpdFrShippingApi/blob/master/LICENSE.md</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/mathieu-y/DpdFrShippingApi</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RootNamespace>YardConsulting.DpdOdyssee</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

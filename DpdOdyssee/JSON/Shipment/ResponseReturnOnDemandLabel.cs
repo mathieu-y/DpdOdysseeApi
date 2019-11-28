@@ -8,6 +8,7 @@ namespace YardConsulting.DpdOdyssee.JSON.Shipment
 {
     /// <summary>
     /// 2.5.2
+    /// The API returns the requested shipping information, as well as a document that contains the transport labels
     /// </summary>
     public class ResponseReturnOnDemandLabel
     {
