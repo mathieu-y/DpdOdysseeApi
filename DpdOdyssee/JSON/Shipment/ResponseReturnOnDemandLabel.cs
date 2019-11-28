@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Mathieu Yard, 2019 - mathieu.yard at gmail.com
+
+using System;
 using System.Collections.Generic;
 using YardConsulting;
 using System.ComponentModel;
