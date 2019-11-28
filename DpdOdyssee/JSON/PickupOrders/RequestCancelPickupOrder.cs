@@ -29,7 +29,7 @@ namespace YardConsulting.DpdOdyssee.JSON.PickupOrders
         /// <returns></returns>
         public async Task<ResponseProgramPickupOrder> CancelAsync(DpdOdysseeCredentials credentials)
         {
-            var req = new DpdRequest(credentials, path, this);
+            var req = new DpdOdysseeRequest(credentials, path, this);
             return await req.GetResponseAsync<ResponseProgramPickupOrder>();
         }
     }

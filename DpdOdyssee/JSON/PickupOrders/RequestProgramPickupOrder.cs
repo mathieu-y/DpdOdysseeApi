@@ -109,7 +109,7 @@ namespace YardConsulting.DpdOdyssee.JSON.PickupOrders
         public async Task<ResponseProgramPickupOrder> ProgramAsync(DpdOdysseeCredentials credentials)
         {
             FillFrom(credentials);
-            var req = new DpdRequest(credentials, path, this);
+            var req = new DpdOdysseeRequest(credentials, path, this);
             return await req.GetResponseAsync<ResponseProgramPickupOrder>();
         }
     }

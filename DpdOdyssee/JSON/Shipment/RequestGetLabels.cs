@@ -59,7 +59,7 @@ namespace YardConsulting.DpdOdyssee.JSON.Shipment
         /// <returns></returns>
         public async Task<ResponseGetLabels> DownloadAsync(DpdOdysseeCredentials credentials)
         {
-            var req = new DpdRequest(credentials, downloadPath, this);
+            var req = new DpdOdysseeRequest(credentials, downloadPath, this);
             return await req.GetResponseAsync<ResponseGetLabels>();
         }
 
@@ -71,7 +71,7 @@ namespace YardConsulting.DpdOdyssee.JSON.Shipment
         /// <returns></returns>
         public async Task<Label> ReprintAsync(DpdOdysseeCredentials credentials)
         {
-            var req = new DpdRequest(credentials, reprintPath, this);
+            var req = new DpdOdysseeRequest(credentials, reprintPath, this);
             return await req.GetResponseAsync<Label>();
         }
 
@@ -83,7 +83,7 @@ namespace YardConsulting.DpdOdyssee.JSON.Shipment
         /// <returns></returns>
         public async Task<ResponseReturnOnDemandLabel> PrintReturnOnDemandAsync(DpdOdysseeCredentials credentials)
         {
-            var req = new DpdRequest(credentials, rodPath, this);
+            var req = new DpdOdysseeRequest(credentials, rodPath, this);
             return await req.GetResponseAsync<ResponseReturnOnDemandLabel>();
         }
     }

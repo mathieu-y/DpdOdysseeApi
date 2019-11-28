@@ -20,14 +20,19 @@ namespace DpdOdyssee_TestProject
             credentials = new DpdOdysseeCredentials("credentials.json");
 
             // Feel free to comment/uncomment the lines below to run the matching tests
-            long callId = await PickupTests.TestProgramPickup();
-            await PickupTests.TestCancelProgramPickup(callId);
+
+            //long callId = await PickupTests.TestProgramPickup();
+            //await PickupTests.TestCancelProgramPickup(callId);
 
             long parcelNumber = await ShippingTests.TestOne();
-            await ShippingTests.TestReprint(parcelNumber);
-            await ShippingTests.TestPrintROD(parcelNumber);
+            //await ShippingTests.TestReprint(parcelNumber);
+            //await ShippingTests.TestPrintROD(parcelNumber);
 
-            await ShippingTests.TestMulti();
+            //await ShippingTests.TestMulti();
+
+            long callId = await CollectionRequestTests.ProgramCollectionRequest();
+            await CollectionRequestTests.CancelCollectionRequest(callId);
+
         }
     }
 }

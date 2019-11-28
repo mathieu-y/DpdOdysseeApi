@@ -16,7 +16,7 @@ namespace YardConsulting.DpdOdyssee
     /// <summary>
     /// Class to interact with DPD's servers.
     /// </summary>
-    public class DpdRequest
+    public class DpdOdysseeRequest
     {
         private static JsonSerializer serializerStrict = new JsonSerializer {
              MissingMemberHandling = MissingMemberHandling.Error
@@ -31,18 +31,22 @@ namespace YardConsulting.DpdOdyssee
              DateFormatString = "yyyyMMdd"          
             ,NullValueHandling = NullValueHandling.Ignore
         };
-
-        const string apiUri = "https://ws.dpd.fr/backend/api/integration/public/";
-
+        
         object jsonRequest;
 
         HttpWebRequest webRequest;
 
-        public DpdRequest(DpdOdysseeCredentials credentials, string path, object jsonRequest)
+        public DpdOdysseeRequest(DpdOdysseeCredentials credentials, string path, object jsonRequest)
         {
-            webRequest = (HttpWebRequest) WebRequest.Create(apiUri + path);
+            string uri = string.Concat(credentials.uri + path);
+
+#if DEBUG
+            Debug.WriteLine($"*** CALLING URL: {uri}");
+#endif
+            webRequest = (HttpWebRequest) WebRequest.Create(uri);
             webRequest.Method = "POST";
             webRequest.ContentType = "application/json; charset=utf-8";
+            webRequest.AllowAutoRedirect = false;
             webRequest.Headers[HttpRequestHeader.Authorization] = credentials.ToString();
 
             this.jsonRequest = jsonRequest;

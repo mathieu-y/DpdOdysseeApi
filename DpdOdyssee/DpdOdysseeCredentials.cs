@@ -10,11 +10,16 @@ using Newtonsoft.Json;
 
 namespace YardConsulting
 {
+    /// <summary>
+    /// This class contains all account-related function. It's meant to be loaded from a config file.
+    /// (or a string in a database, whatsoever...)
+    /// </summary>
     public class DpdOdysseeCredentials
     {
         static readonly JsonSerializer serializer = new JsonSerializer { MissingMemberHandling = MissingMemberHandling.Error };
         static readonly Encoding httpHeaderEncoding = Encoding.GetEncoding("ISO-8859-1");
 
+        public string uri { get; set; }
         public string login { get; set; }
         public string password { get; set; }
         public long? payerId { get; set; }
@@ -36,12 +41,19 @@ namespace YardConsulting
             this.password = password;
         }
 
-        public DpdOdysseeCredentials(string path)
+        public DpdOdysseeCredentials(string path) : this(File.OpenRead(path))
         {
-            using (var stream = File.OpenRead(path))
-                serializer.Populate(new JsonTextReader(new StreamReader(stream)), this);
         }
 
-        public override string ToString() => String.Concat("Basic ", Convert.ToBase64String(httpHeaderEncoding.GetBytes($"{login}:{password}")));
+        public DpdOdysseeCredentials(Stream input)
+        {
+            using (input)
+                serializer.Populate(new JsonTextReader(new StreamReader(input)), this);
+        }
+
+        public static DpdOdysseeCredentials Parse(string serialized)
+            => new DpdOdysseeCredentials(new MemoryStream(Encoding.UTF8.GetBytes(serialized)));
+
+        public override string ToString() => string.Concat("Basic ", Convert.ToBase64String(httpHeaderEncoding.GetBytes($"{login}:{password}")));
     }
 }

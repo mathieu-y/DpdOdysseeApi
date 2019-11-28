@@ -401,7 +401,7 @@ namespace YardConsulting.DpdOdyssee.JSON.Shipment
         public async Task<ResponseGetLabels> PrintAsync(DpdOdysseeCredentials credentials)
         {
             FillFrom(credentials);
-            var req = new DpdRequest(credentials, GetPath("print"), this);
+            var req = new DpdOdysseeRequest(credentials, GetPath("print"), this);
             return await req.GetResponseAsync<ResponseGetLabels>();
         }
 
@@ -413,7 +413,7 @@ namespace YardConsulting.DpdOdyssee.JSON.Shipment
         public async Task<ResponseTempShipArray> SaveAsync(DpdOdysseeCredentials credentials)
         {
             FillFrom(credentials);
-            var req = new DpdRequest(credentials, GetPath("ext"), this);
+            var req = new DpdOdysseeRequest(credentials, GetPath("ext"), this);
             return await req.GetResponseAsync<ResponseTempShipArray>();
         }
     }
