@@ -12,16 +12,17 @@ namespace DpdOdyssee_TestProject
 {
     public static class CollectionRequestTests
     {
-        internal static async Task<long> ProgramCollectionRequest()
+        internal static async Task<long[]> ProgramCollectionRequest()
         {
             var request = new RequestProgramCollectionRequest
             {
                 custref = "my_ref123",
                 weight = 5,
-                parcelCount = 10,
+                parcelCount = 2,
                 desiredPickupDate = DateTime.Now + TimeSpan.FromDays(1),
 
                 cname = "DPD",
+                cname2 = "DPD2",
                 cstreet = "9 rue Maurice Mallet",
                 cpostal = "92130",
                 ccity = "Issy -les-Moulineaux",
@@ -29,6 +30,7 @@ namespace DpdOdyssee_TestProject
                 cphone = "+33 (0)6 00 00 00 00",
 
                 rname = "Geopost",
+                rname2 = "Geopost2",
                 rstreet = "26, rue Guynemer",
                 rpostal = "92130",
                 rcity = "Issy-les-Moulineaux",
@@ -42,7 +44,7 @@ namespace DpdOdyssee_TestProject
 
             Debugger.Break();
 
-            return acquired_data.callId.Value;
+            return (from x in acquired_data select x.callId.Value).ToArray();
         }
 
         internal static async Task CancelCollectionRequest(long callId)

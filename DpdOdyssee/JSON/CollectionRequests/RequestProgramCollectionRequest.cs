@@ -63,7 +63,7 @@ namespace YardConsulting.DpdOdyssee.JSON.CollectionRequests
         /// Name line 2
         /// </summary>
         [Description("Name line 2"), Api(MaxLen = 35)]
-        public string cname2 { get; set; }
+        public string cname2 { get; set; } // TODO: DPD: should be optional (doc), but is mandatory
 
         /// <summary>
         /// Name line 3
@@ -162,7 +162,7 @@ namespace YardConsulting.DpdOdyssee.JSON.CollectionRequests
         /// Name line 2
         /// </summary>
         [Description("Name line 2"), Api(MaxLen = 35)]
-        public string rname2 { get; set; }
+        public string rname2 { get; set; } // TODO: DPD: should be optional (doc), but is mandatory
 
         /// <summary>
         /// House number
@@ -248,10 +248,10 @@ namespace YardConsulting.DpdOdyssee.JSON.CollectionRequests
         /// </summary>
         /// <param name="credentials">Credentials</param>
         /// <returns></returns>
-        public async Task<ResponseProgramCollectionRequest> ProgramAsync(DpdOdysseeCredentials credentials)
+        public async Task<ResponseProgramCollectionRequest[]> ProgramAsync(DpdOdysseeCredentials credentials)
         {
             var req = new DpdOdysseeRequest(credentials, path, this);
-            return await req.GetResponseAsync<ResponseProgramCollectionRequest>();
+            return await req.GetResponseAsync<ResponseProgramCollectionRequest[]>();
         }
     }
 }

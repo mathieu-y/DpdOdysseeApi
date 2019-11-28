@@ -76,15 +76,17 @@ namespace YardConsulting.DpdOdyssee
 #if DEBUG
                 object response = stream.GetDeserializedResponse<object>(serializer);
                 Debug.WriteLine("*** RESPONSE *********************");
+                Debug.WriteLine($"*** {webResponse.StatusCode}");
                 Debug.Write(webResponse.Headers);
                 Debug.WriteLine(response.ToFormattedJson());
                 Debug.WriteLine("**********************************");
 #endif
 
+                if (webResponse.StatusCode != HttpStatusCode.OK)
+                    throw new InvalidOperationException($"The server replyied with an unexpected status: {webResponse.StatusCode}");
+
                 try {
-                    T jobj = stream.GetDeserializedResponse<T>(serializerStrict);
-                    if (jobj == default) throw new InvalidDataException("The server returned a null.");
-                    return jobj;
+                    return stream.GetDeserializedResponse<T>(serializerStrict);
                 }
                 catch (JsonSerializationException jex)
                 {
