@@ -5,12 +5,14 @@
     <PackageId>YardConsulting.DpdOdysseeApi</PackageId>
     <Authors>Mathieu Yard</Authors>
     <Company>Yard Consulting</Company>
-    <Description>New DPD FRANCE SHIPPING API (should be in production in march 2020)</Description>
+    <Description>New DPD France Odyssée API (should be in production in march 2020)</Description>
     <Copyright>Mathieu Yard</Copyright>
-    <PackageLicenseUrl>https://github.com/mathieu-y/DpdFrShippingApi/blob/master/LICENSE.md</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/mathieu-y/DpdFrShippingApi</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/mathieu-y/DpdOdysseeApi/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/mathieu-y/DpdOdysseeApi</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <RootNamespace>YardConsulting.DpdOdyssee</RootNamespace>
+    <AssemblyName>YardConsulting.DpdOdyssee</AssemblyName>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
