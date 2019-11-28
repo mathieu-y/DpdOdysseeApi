@@ -3,27 +3,26 @@ New DPD Odyssee Shipping API (should be in production in march 2020)
 
 Covered by this Library: 
 
-A Unitary shipment label creation
+A: Unitary shipment label creation
 
-B Shipment registering for future label generation
+B: Shipment registering for future label generation
 
-C Confirmation and label generation
+C: Confirmation and label generation
 
-D Reprint a label
+D: Reprint a label
 
-E Print a “Return on demand” label
-
-
-F Program a pickup order
-
-G Cancel a pickup order 
+E: Print a “Return on demand” label
 
 
-H Program a Collection Request
+F: Program a pickup order
 
-I Cancel a Collection Request
+G: Cancel a pickup order 
 
-This library is not fully tested yet, only A,B,C,D,E,F,G are tested and working. 
+
+H: Program a Collection Request
+
+I: Cancel a Collection Request
+
 
 How to use ?
 
@@ -31,6 +30,7 @@ Simply put a "credentials.json" file in the same path as the .exe and fill it wi
 
 ```
 {
+	"uri": "https://ws.dpd.fr/backend/api/integration/public/",
 	"login": "***",
 	"password": "***",
 	"departureUnitId": "***",
