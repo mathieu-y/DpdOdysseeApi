@@ -13,6 +13,6 @@ namespace YardConsulting.DpdOdyssee
     {
         public static string ToFormattedJson(this object o, JsonSerializerSettings settings = null) 
             => JsonConvert.SerializeObject(o, Formatting.Indented, settings ?? new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });            
-
+         
     }
 }

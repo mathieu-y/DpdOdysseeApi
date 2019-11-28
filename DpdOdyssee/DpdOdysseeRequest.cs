@@ -81,7 +81,11 @@ namespace YardConsulting.DpdOdyssee
                 Debug.WriteLine("**********************************");
 #endif
 
-                try { return stream.GetDeserializedResponse<T>(serializerStrict); }
+                try {
+                    T jobj = stream.GetDeserializedResponse<T>(serializerStrict);
+                    if (jobj == default) throw new InvalidDataException("The server returned a null.");
+                    return jobj;
+                }
                 catch (JsonSerializationException jex)
                 {
                     var error = stream.GetDeserializedResponse<JSON.Error>(serializer);
