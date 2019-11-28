@@ -1,4 +1,4 @@
-# DpdOdyssee.Api
+# DpdOdyssee.Api (C#.NET)
 New DPD Odyssee Shipping API (should be in production in march 2020)
 
 Covered by this Library: 
@@ -19,7 +19,7 @@ This library is not fully tested yet, only labels creation and generation is tes
 
 How to use ?
 
-Simply put a "credentials.json" file in the same path as the .exe and fill it with your credential like so :
+Simply put a "credentials.json" file in the same path as the .exe and fill it with your credentials like so :
 
 ```
 {
