@@ -30,8 +30,8 @@ namespace DpdOdyssee_TestProject
 
             await ShippingTests.TestMulti();
 
-            long [] callId = await CollectionRequestTests.ProgramCollectionRequest();
-            await CollectionRequestTests.CancelCollectionRequest(callId.First()); // <== error 504, timeout. Problem at DPD side.
+            long [] callIds = await CollectionRequestTests.ProgramCollectionRequest();
+            await CollectionRequestTests.CancelCollectionRequest(callIds.First()); // <== error 504, timeout. Problem at DPD side.
 
 
         }
